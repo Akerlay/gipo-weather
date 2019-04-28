@@ -1,0 +1,45 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="forecast">
+        <div class="city-title">
+            <h1>Погода в городе {{city}}</h1>
+        </div>
+        <div class="content">
+            {% for day in forecast %}
+                <div class="single-day-forecast">
+                    <div class="date">
+                        <h5>{{day.date}}</h5>
+                    </div>
+                    <div class="weather-container">
+                        <div class="day">
+                            <h6>День</h6>
+                            <div class="temp">{{day.day.temp}}</div>
+                            <div class="feels">Ощущается как {{day.day.feels}}</div>
+                            <div class="icon">
+                                <img src={{day.day.icon}} alt="За стеклом" width="30" height="30">
+                            </div>
+                            <div class="wind_speed">Скорость ветра: {{day.day.wind_speed}}</div>
+                            <div class="wind_dir">Направление ветра: {{day.day.wind_dir}}</div>
+                            <div class="pressure">Давление: {{day.day.pressure}}</div>
+                            <div class="humidity">Влажность: {{day.day.humidity}}</div>
+                        </div>
+                        <div class="night">
+                            <h6>Ночь</h6>
+                            <div class="temp">{{day.night.temp}}</div>
+                            <div class="feels">Ощущается как {{day.night.feels}}</div>
+                            <div class="icon">
+                                <img src={{day.night.icon}} alt="За стеклом" width="30" height="30">
+                            </div>
+                            <div class="wind_speed">Скорость ветра: {{day.night.wind_speed}}</div>
+                            <div class="wind_dir">Направление ветра: {{day.night.wind_dir}}</div>
+                            <div class="pressure">Давление: {{day.night.pressure}}</div>
+                            <div class="humidity">Влажность: {{day.night.humidity}}</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">
+    <title>Weather</title>
+  </head>
+  <body>
+  <div class="wrapper">
+    <div class="b-page__container">
+      <div class="header">
+        <div class="logo">
+          <img class="logo-img" src={{url_for('static', filename="logo.svg")}} alt="За стеклом" width="80" height="80">
+          <h1 class="logo-text">Название</h1>
+          <div class="city-input">
+            <form action="" method="post" name="weather">
+              <div class="city-input-field">
+                {{form.city(size=80)}}
+              </div>
+              <div class="city-input-button">
+                <input type="submit" value="Погода" placeholder="Введите город">
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+        {% block content %}{% endblock %}
+      <div class="footer">
+        *FOOTER*
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
